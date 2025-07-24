@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Luciole - Your green haven in Vence</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1.5" fill="rgba(255,255,255,0.08)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.12)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .firefly {
+            color: #ffd700;
+            font-size: 2rem;
+            margin: 0 10px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { opacity: 0.7; text-shadow: 0 0 10px #ffd700; }
+            to { opacity: 1; text-shadow: 0 0 20px #ffd700, 0 0 30px #ffd700; }
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .location {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        main {
+            background: white;
+            margin: -30px auto 0;
+            border-radius: 20px 20px 0 0;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .welcome {
+            padding: 50px 0;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .welcome h2 {
+            font-size: 2.2rem;
+            color: #667eea;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .welcome-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            max-width: 900px;
+            margin: 0 auto;
+            color: #444;
+        }
+        
+        .signature {
+            text-align: right;
+            margin-top: 30px;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .info-section {
+            padding: 40px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .info-section h3 {
+            color: #667eea;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .icon {
+            font-size: 1.8rem;
+            margin-right: 10px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .info-card {
+            background: #f8f9ff;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .info-card h4 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .info-card ul {
+            list-style: none;
+        }
+        
+        .info-card li {
+            padding: 5px 0;
+        }
+        
+        .general-info {
+            background: #fff9c4;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #f39c12;
+        }
+        
+        .general-info h4 {
+            color: #e67e22;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            text-decoration: underline;
+        }
+        
+        .fournitures {
+            background: #e8f5e8;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .fournitures h4 {
+            color: #27ae60;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            text-decoration: underline;
+        }
+        
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 15px 0;
+        }
+        
+        .equipment-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .equipment-item h5 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-decoration: underline;
+        }
+        
+        .piscine-section {
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .piscine-content {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            margin: 20px 0;
+        }
+        
+        .contact-section {
+            background: #2d3436;
+            color: white;
+            padding: 40px 0;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .contact-card {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-card h4 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            color: #74b9ff;
+        }
+        
+        .phone {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #74b9ff;
+            text-decoration: none;
+        }
+        
+        .phone:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+        
+        a[href*="airbnb"]:hover {
+            background: #5a67d8 !important;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        strong {
+            color: #667eea;
+        }
+        
+        .highlight-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+            margin: 15px 0;
+            color: #2c3e50;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .info-grid { grid-template-columns: 1fr; }
+            .equipment-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><span class="firefly" aria-hidden="true">💫</span>« La Luciole »<span class="firefly" aria-hidden="true">💫</span></h1>
+            <p class="subtitle">A green haven for your well-being</p>
+            <p class="location"><span aria-hidden="true">📍</span> 1810 chemin du Pioulier • 06140 VENCE - FRANCE</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="welcome">
+                <h2>A Welcome Message</h2>
+                <div class="welcome-text">
+                    <p>Dear travelers,</p>
+                    
+                    <p>We are absolutely delighted to welcome you to « La Luciole ».</p>
+                    
+                    <p>Whether you are here to relax, explore the region or for work, we have put all our heart into preparing this place so that your stay is most pleasant and memorable.</p>
+                    
+                    <p>This space has been conceived as a refuge, a place where one can settle and recharge. We hope you will feel at home here.</p>
+                    
+                    <p>Please do not hesitate to contact us if you have any questions. We wish you an exceptional stay!</p>
+                    
+                    <div class="signature">Valérie</div>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <h3><span class="icon" aria-hidden="true">🏠</span>Your Accommodation</h3>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>Arrival and Departure</h4>
+                        <ul>
+                            <li><strong>Check-in time:</strong> From 3:00 PM</li>
+                            <li><strong>Key instructions:</strong> The keys and remote control are in the key box to the right of the gate. The code is: <strong>8564</strong></li>
+                            <li><strong>Check-out time:</strong> No later than 10:00 AM</li>
+                            <li><strong>Key instructions:</strong> Leave the keys in the mailbox</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>Wi-Fi</h4>
+                        <ul>
+                            <li><strong>Network (SSID):</strong> NETGEAR45 EXT</li>
+                            <li><strong>Password:</strong> strongtree324 (all lowercase)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <h3><span class="icon" aria-hidden="true">🏡</span>Property Description</h3>
+                <p>The apartment consists of a living room with dining area, a kitchen space, 2 bedrooms, a shower room, a toilet, and a work corner.</p>
+                <p>Outside, there is a dining area as well as a garden lounge area.</p>
+                
+                <p><strong>🏊‍♀️ The swimming pool:</strong> A true asset of the property, our heated swimming pool when its temperature is below 72°F (22°C), offers you exceptional moments of relaxation. Accessible from 9 AM to 6:30 PM, it features a mini Jacuzzi that can be activated with the simple press of a button. The pool area is equipped with deck chairs, lounge chairs and parasol for your comfort. A shower is available on site.</p>
+                
+                <p>A private parking space inside the property.</p>
+                
+                <div class="info-grid" style="margin-top: 30px;">
+                    <div class="info-card">
+                        <h4><span aria-hidden="true">🛋️</span> Living Room</h4>
+                        <p>Large relaxation space with LG television, SFR decoder and Bluetooth speakers</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4><span aria-hidden="true">🍽️</span> Dining Room</h4>
+                        <p>Friendly space for your meals.</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4><span aria-hidden="true">🛏️</span> Master Bedroom</h4>
+                        <p>Large comfortable bedroom with queen size bed</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4><span aria-hidden="true">🛏️</span> Second Bedroom</h4>
+                        <p>Second comfortable bedroom with double bed</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4><span aria-hidden="true">🚿</span> Shower Room</h4>
+                        <p>Modern and functional, Italian-style walk-in shower with "rain head", washing machine/dryer area</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4><span aria-hidden="true">🌿</span> Garden Area</h4>
+                        <p>Garden space with table for 6 people and garden lounge, electric barbecue, parasols</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <h3><span class="icon" aria-hidden="true">ℹ️</span>General Information</h3>
+                
+                <div class="general-info">
+                    <h4>Gate:</h4>
+                    <p>The remote control allows you to open the gate which stays open for 20 seconds and then <strong>closes automatically</strong>.</p>
+                </div>
+                
+                <div class="general-info">
+                    <h4>Household waste:</h4>
+                    <p>When leaving, empty the apartment's trash cans. The <strong>containers are located 50 meters to the right when leaving the property.</strong></p>
+                    <p>There are special containers for packaging.</p>
+                    <p>No glass containers on site, there are some all around the town.</p>
+                </div>
+                
+                <div class="general-info">
+                    <h4>Apartment cleaning:</h4>
+                    <p>The apartment must be returned with <strong>cleaning completed</strong>.</p>
+                    <p><strong>Possibility</strong> to request that <strong>cleaning be done</strong> for a contribution of <strong>€50.00</strong>.</p>
+                </div>
+                
+                <div class="general-info">
+                    <h4>Towels and bed linen:</h4>
+                    <p>Towels and bed linen are <strong>included in the rental.</strong></p>
+                    <p>For stays longer than 8 nights, sheets and towels are changed once a week (included in the rental).</p>
+                </div>
+                
+                <div class="general-info">
+                    <h4>Music:</h4>
+                    <p>For the tranquility of the neighborhood, it is not authorized to play music outside (terrace, pool).</p>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <div class="fournitures">
+                    <h3><span class="icon" aria-hidden="true">🔧</span>Amenities</h3>
+                    <p>The apartment is provided with everything you need to have a pleasant stay. If you have specific requests, contact us.</p>
+                    
+                    <div class="equipment-grid">
+                        <div class="equipment-item">
+                            <h5>Kitchen:</h5>
+                            <p>Induction hob, electric oven, microwave oven, dishwasher, refrigerator, Nespresso coffee machine, filter coffee machine, toaster, kettle.</p>
+                        </div>
+                        
+                        <div class="equipment-item">
+                            <h5>Kitchenware:</h5>
+                            <p>3 saucepans, 3 frying pans, 1 aluminum cast iron casserole, 1 strainer, 8 dessert plates, 8 dinner plates, 4 soup plates, 5 bowls, 6 mugs, 5 coffee cups, 9 "espresso" coffee cups, 12 water glasses, 6 stemmed wine glasses, 6 aperitif glasses, 5 champagne flutes.</p>
+                            <p>Cutlery: 6 of each, 2 kitchen knives.</p>
+                        </div>
+                        
+                        <div class="equipment-item">
+                            <h5>Electric "Weber" barbecue:</h5>
+                            <p>Electric resistance barbecue. The extension cord under the kitchen worktop allows you to plug it into the interior outlet next to the bench.</p>
+                        </div>
+                        
+                        <div class="equipment-item">
+                            <h5>Living room/dining room:</h5>
+                            <p>LG television, SFR decoder (TNT, Netflix, Amazon prime), 2 Wavemaster Bluetooth speakers.</p>
+                        </div>
+                        
+                        <div class="equipment-item">
+                            <h5>Bedrooms:</h5>
+                            <p>Sheets, pillows, duvets.</p>
+                        </div>
+                        
+                        <div class="equipment-item">
+                            <h5>Bathroom:</h5>
+                            <p>One set of towels per person, washing machine/dryer, hair dryer.</p>
+                        </div>
+                        
+                        <div class="equipment-item">
+                            <h5>Closets/Wardrobe:</h5>
+                            <p>Iron, ironing board, drying rack, vacuum cleaner, 2 laundry baskets, cleaning products.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <h3><span class="icon" aria-hidden="true">📺</span>Internet - Television</h3>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>Free WIFI Connection</h4>
+                        <ul>
+                            <li><strong>Network name:</strong> NETGEAR45 EXT <em>and/or</em> NETGEAR45 5G EXT</li>
+                            <li><strong>Wifi security key:</strong> strongtree324 (all lowercase)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>TV</h4>
+                        <p>The "LG" television is connected to an <strong>SFR Box</strong> with TNT channel programs and dozens of other channels.</p>
+                        <p>The "Box" is also connected to <strong>NETFLIX.</strong> Access is pre-programmed for you as a <strong>guest</strong>.</p>
+                        <p>"Box" connected to <strong>Amazon Prime Video</strong>.</p>
+                        
+                        <h5 style="margin-top: 15px;">Operation</h5>
+                        <p>Turn on the television and then the SFR Box. The television automatically detects the Box. <strong>Netflix and Amazon Prime</strong> are on the SFR Box home menu, at the bottom.</p>
+                        <p>To access them, press the house-shaped icon and use the arrows to navigate.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section class="piscine-section">
+            <div class="container">
+                <h3><span class="icon" aria-hidden="true">🏊‍♀️</span>SWIMMING POOL</h3>
+                
+                <div class="piscine-content">
+                    <p><strong>The swimming pool is accessible from 9 AM to 6:30 PM</strong></p>
+                    
+                    <p>It may be shared (rarely) with the owners of "La Luciole".</p>
+                    
+                    <p>It is <strong>not supervised</strong>.</p>
+                    
+                    <p>Swimming for <strong>minor children</strong> is under the full <strong>responsibility of parents</strong>.</p>
+                    
+                    <p>On the terrace areas around the pool, <strong>do not wear "street shoes"</strong>.</p>
+                    
+                    <div class="highlight-box">
+                        <p>A <strong>shower is available and mandatory</strong> before each swim, to remove traces of tanning or protection creams, harmful to pH balance.</p>
+                    </div>
+                    
+                    <div class="highlight-box">
+                        <p><strong>Attention!</strong> The first step is a bit high, which allows for a <strong>mini Jacuzzi</strong>, by activating the push button just to the left of the steps.</p>
+                    </div>
+                    
+                    <p>Drinks and <strong>picnics are prohibited</strong> around and in the pool.</p>
+                    
+                    <p>Deck chairs and lounge chairs are available, as well as a parasol.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="container">
+                <h2><span class="icon" aria-hidden="true">📞</span>Contacts and Emergencies</h2>
+                
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <h4>Your Hosts</h4>
+                        <div><strong>Valérie JULLIOT:</strong> <a href="tel:+33658747557" class="phone">+33 658 747 557</a></div>
+                        <div style="margin-top: 10px;"><strong>Or if needed</strong></div>
+                        <div><strong>Jean F. LECOCQ:</strong> <a href="tel:+33637698172" class="phone">+33 637 698 172</a></div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <h4>Emergency Numbers</h4>
+                        <div><strong>SAMU (Medical Emergency):</strong> <a href="tel:15" class="phone">15</a></div>
+                        <div><strong>Police Emergency:</strong> <a href="tel:17" class="phone">17</a></div>
+                        <div><strong>Fire Department:</strong> <a href="tel:18" class="phone">18</a></div>
+                        <div><strong>European Emergency Number:</strong> <a href="tel:112" class="phone">112</a></div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <h4>Local Healthcare</h4>
+                        <div><strong>Nearest on-call doctor:</strong></div>
+                        <a href="tel:0969323310" class="phone">09.69.32.33.10</a>
+                        <div style="margin-top: 15px;"><strong>Nearest hospital or clinic:</strong></div>
+                        <div>Polyclinique Saint-Jean</div>
+                        <div>92-94 avenue Dr Maurice Donat</div>
+                        <div>06800 Cagnes sur Mer</div>
+                        <div><a href="tel:0492135313" class="phone">Tel: 04.92.13.53.13</a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section" style="text-align: center; padding-top: 30px;">
+            <h3><span class="icon" aria-hidden="true">🔗</span>Link to listing and photos</h3>
+            <a href="https://www.airbnb.fr/rooms/44230085?guests=1&adults=1&s=67&unique_share_id=d7bd9e64-6a2c-4362-b4e2-94de1101127f" target="_blank" style="display: inline-block; background: #667eea; color: white; padding: 15px 30px; border-radius: 25px; text-decoration: none; font-size: 1.1rem; font-weight: bold; transition: background 0.3s ease;">
+                🏠 View complete listing and photos
+            </a>
+        </section>
+    </main>
+</body>
+</html>
